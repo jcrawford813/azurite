@@ -1,0 +1,1 @@
+alias sysupdate="rpm-ostree update && flatpak update -y && distrobox upgrade --all"

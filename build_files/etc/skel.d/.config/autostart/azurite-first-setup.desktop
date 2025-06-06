@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Azurite Desktop FirstBoot Setup
+Comment=Sets up Azurite Desktop Correctly On FirstBoot
+Exec=/usr/bin/azurite-first-setup
+Icon=org.kde.Konsole
+Type=Application
+Categories=Utility;System;
+Name[en_US]=startup
