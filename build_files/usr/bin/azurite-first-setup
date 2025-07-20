@@ -116,14 +116,6 @@ if [ "$?" != 0 ] ; then
           "Installing Kcalc Failed"
 fi
 
-echo "# Installing Firefox"
-/usr/bin/flatpak install --user --or-update --noninteractive flathub org.mozilla.firefox
-/usr/bin/flatpak install --user --or-update --noninteractive flathub org.freedesktop.Platform.ffmpeg-full
-if [ "$?" != 0 ] ; then
-        kdialog --error \
-          "Installing Firefox Failed"
-fi
-
 echo "# Installing Thunderbird"
 /usr/bin/flatpak install --user --or-update --noninteractive flathub org.mozilla.Thunderbird
 if [ "$?" != 0 ] ; then
