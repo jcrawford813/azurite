@@ -24,10 +24,10 @@ dnf swap mesa-vdpau-drivers mesa-vdpau-drivers-freeworld -y
 curl -fsSL https://github.com/filips123/PWAsForFirefox/releases/download/v2.15.0/firefoxpwa-2.15.0-1.x86_64.rpm -o /tmp/firefoxpwa.rpm
 dnf --setopt=install_weak_deps=False install -y /tmp/firefoxpwa.rpm
 
-### Install packages
+### Install packages (Distrobox, Fish, Virtualization, Backup Solution)
 
 dnf install distrobox ksshaskpass libvirt-daemon-config-network libvirt-daemon-kvm swtpm-selinux qemu-kvm virt-manager -y
-dnf install fish borgbackup solaar plasma-firewall-firewalld -y
+dnf install fish borgbackup solaar plasma-firewall-firewalld fluidsynth -y
 
 ## Enable automatic update staging.
 sed -i 's/#AutomaticUpdatePolicy.*/AutomaticUpdatePolicy=stage/' /etc/rpm-ostreed.conf
