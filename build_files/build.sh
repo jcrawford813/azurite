@@ -21,13 +21,19 @@ dnf swap mesa-va-drivers mesa-va-drivers-freeworld -y
 dnf swap mesa-vdpau-drivers mesa-vdpau-drivers-freeworld -y
 
 #Install Firefox PWA Runtime
-curl -fsSL https://github.com/filips123/PWAsForFirefox/releases/download/v2.15.0/firefoxpwa-2.15.0-1.x86_64.rpm -o /tmp/firefoxpwa.rpm
-dnf --setopt=install_weak_deps=False install -y /tmp/firefoxpwa.rpm
+rpm --import https://packagecloud.io/filips/FirefoxPWA/gpgkey
+echo -e "[firefoxpwa]\nname=FirefoxPWA\nmetadata_expire=7d\nbaseurl=https://packagecloud.io/filips/FirefoxPWA/rpm_any/rpm_any/\$basearch\ngpgkey=https://packagecloud.io/filips/FirefoxPWA/gpgkey\nrepo_gpgcheck=1\ngpgcheck=0\nenabled=1" |  tee /etc/yum.repos.d/firefoxpwa.repo
+dnf -q makecache -y --disablerepo="*" --enablerepo="firefoxpwa"
+dnf install firefoxpwa -y
+
 
 ### Install packages (Distrobox, Fish, Virtualization, Backup Solution)
 
 dnf install distrobox ksshaskpass libvirt-daemon-config-network libvirt-daemon-kvm swtpm-selinux qemu-kvm virt-manager -y
-dnf install fish borgbackup solaar plasma-firewall-firewalld fluidsynth -y
+dnf install fish borgbackup solaar plasma-firewall-firewalld fluidsynth thunderbird -y
+
+### Install kde packages
+dnf install skanpage tesseract gwenview okular neochat krita digikam -y
 
 ## Enable automatic update staging.
 sed -i 's/#AutomaticUpdatePolicy.*/AutomaticUpdatePolicy=stage/' /etc/rpm-ostreed.conf
