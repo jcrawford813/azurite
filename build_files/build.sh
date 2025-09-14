@@ -30,7 +30,10 @@ dnf install firefoxpwa -y
 ### Install packages (Distrobox, Fish, Virtualization, Backup Solution)
 
 dnf install distrobox ksshaskpass libvirt-daemon-config-network libvirt-daemon-kvm swtpm-selinux qemu-kvm virt-manager -y
-dnf install fish borgbackup solaar plasma-firewall-firewalld fluidsynth -y
+dnf install fish borgbackup solaar plasma-firewall-firewalld fluidsynth thunderbird -y
+
+### Install kde packages
+dnf install skanpage tesseract gwenview okular neochat krita digikam -y
 
 ## Enable automatic update staging.
 sed -i 's/#AutomaticUpdatePolicy.*/AutomaticUpdatePolicy=stage/' /etc/rpm-ostreed.conf
