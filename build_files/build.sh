@@ -33,7 +33,7 @@ dnf install distrobox ksshaskpass libvirt-daemon-config-network libvirt-daemon-k
 dnf install fish borgbackup solaar plasma-firewall-firewalld fluidsynth thunderbird -y
 
 ### Install kde packages
-dnf install skanpage tesseract gwenview okular neochat krita digikam -y
+dnf install skanpage tesseract gwenview okular neochat krita digikam haruna -y
 
 ## Enable automatic update staging.
 sed -i 's/#AutomaticUpdatePolicy.*/AutomaticUpdatePolicy=stage/' /etc/rpm-ostreed.conf
