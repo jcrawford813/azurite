@@ -29,7 +29,7 @@ dnf install firefoxpwa -y
 
 ### Install packages (Distrobox, Fish, Virtualization, Backup Solution)
 
-dnf install distrobox ksshaskpass libvirt-daemon-config-network libvirt-daemon-kvm swtpm-selinux qemu-kvm virt-manager -y
+dnf install distrobox ksshaskpass libvirt-daemon-config-network libvirt-daemon-kvm swtpm-selinux qemu-kvm virt-manager lm_sensors -y
 dnf install fish borgbackup solaar plasma-firewall-firewalld fluidsynth thunderbird -y
 
 ### Install kde packages
