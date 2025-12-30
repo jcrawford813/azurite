@@ -11,98 +11,104 @@ until /usr/bin/ping -q -c 1 flathub.org; do sleep 1; done
 
 
 echo "# Enabling Flathub Repository"
-/usr/bin/flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+/usr/bin/flatpak remote-add --system --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 if [ "$?" != 0 ] ; then
         kdialog --error \
           "Adding Flathub Repo Failed"
 fi
 
 echo "Removing all preinstalled Flatpaks"
-/usr/bin/flatpak remove --system --noninteractive --all ||:
+/usr/bin/flatpak remove --system --noninteractive --all
 if [ "$?" != 0 ] ; then
         kdialog --error \
-          "Removing all preinstalled flatpaks failed"
+          "Removing all preinstalled system flatpaks failed"
 fi
 
+/usr/bin/flatpak remove --user --noninteractive --all
+if [ "$?" != 0 ] ; then
+        kdialog --error \
+          "Removing all preinstalled user flatpaks failed"
+fi  
+
 echo "# Installing Steam"
-/usr/bin/flatpak install --user --or-update --noninteractive flathub com.valvesoftware.Steam
+/usr/bin/flatpak install --system --or-update --noninteractive flathub com.valvesoftware.Steam
 if [ "$?" != 0 ] ; then
         kdialog --error \
           "Installing Steam Failed"
 fi
 
 echo "# Installing Heroic Launcher"
-/usr/bin/flatpak install --user --or-update --noninteractive flathub com.heroicgameslauncher.hgl
+/usr/bin/flatpak install --system --or-update --noninteractive flathub com.heroicgameslauncher.hgl
 if [ "$?" != 0 ] ; then
         kdialog --error \
           "Installing Heroic Failed"
 fi
 
 echo "# Installing Synology Drive Client"
-/usr/bin/flatpak install --user --or-update --noninteractive flathub com.synology.SynologyDrive
+/usr/bin/flatpak install --system --or-update --noninteractive flathub com.synology.SynologyDrive
 if [ "$?" != 0 ] ; then
         kdialog --error \
           "Installing Synology Drive Failed"
 fi
 
 echo "# Installing Digikam"
-/usr/bin/flatpak install --user --or-update --noninteractive flathub org.kde.digikam
+/usr/bin/flatpak install --system --or-update --noninteractive flathub org.kde.digikam
 if [ "$?" != 0 ] ; then
         kdialog --error \
           "Installing Digikam Failed"
 fi
 
 echo "# Installing Krita"
-/usr/bin/flatpak install --user --or-update --noninteractive flathub org.kde.krita
+/usr/bin/flatpak install --system --or-update --noninteractive flathub org.kde.krita
 if [ "$?" != 0 ] ; then
         kdialog --error \
           "Installing Krita Failed"
 fi
 
 echo "# Installing Gwenview"
-/usr/bin/flatpak install --user --or-update --noninteractive flathub org.kde.gwenview
+/usr/bin/flatpak install --system --or-update --noninteractive flathub org.kde.gwenview
 if [ "$?" != 0 ] ; then
         kdialog --error \
           "Installing Gwenview Failed"
 fi
 
 echo "# Installing Okular"
-/usr/bin/flatpak install --user --or-update --noninteractive flathub org.kde.okular
+/usr/bin/flatpak install --system --or-update --noninteractive flathub org.kde.okular
 if [ "$?" != 0 ] ; then
         kdialog --error \
           "Installing Okular Failed"
 fi
 
 echo "# Installing Skanpage"
-/usr/bin/flatpak install --user --or-update --noninteractive flathub org.kde.skanpage
+/usr/bin/flatpak install --system --or-update --noninteractive flathub org.kde.skanpage
 if [ "$?" != 0 ] ; then
         kdialog --error \
           "Installing Skanpage Failed"
 fi
 
 echo "# Installing Neochat"
-/usr/bin/flatpak install --user --or-update --noninteractive flathub org.kde.neochat
+/usr/bin/flatpak install --system --or-update --noninteractive flathub org.kde.neochat
 if [ "$?" != 0 ] ; then
         kdialog --error \
           "Installing Neochat Failed"
 fi
 
 echo "# Installing Kate"
-/usr/bin/flatpak install --user --or-update --noninteractive flathub org.kde.kate
+/usr/bin/flatpak install --system --or-update --noninteractive flathub org.kde.kate
 if [ "$?" != 0 ] ; then
         kdialog --error \
           "Installing Kate Failed"
 fi
 
 echo "# Installing Elisa"
-/usr/bin/flatpak install --user --or-update --noninteractive flathub org.kde.elisa
+/usr/bin/flatpak install --system --or-update --noninteractive flathub org.kde.elisa
 if [ "$?" != 0 ] ; then
         kdialog --error \
           "Installing Elisa Failed"
 fi
 
 echo "# Installing Haruna"
-/usr/bin/flatpak install --user --or-update --noninteractive flathub org.kde.haruna
+/usr/bin/flatpak install --system --or-update --noninteractive flathub org.kde.haruna
 if [ "$?" != 0 ] ; then
         kdialog --error \
           "Installing Haruna Failed"
@@ -110,31 +116,45 @@ fi
 
 
 echo "# Installing Kcalc"
-/usr/bin/flatpak install --user --or-update --noninteractive flathub org.kde.kcalc
+/usr/bin/flatpak install --system --or-update --noninteractive flathub org.kde.kcalc
 if [ "$?" != 0 ] ; then
         kdialog --error \
           "Installing Kcalc Failed"
 fi
 
+echo "# Installing Firefox"
+/usr/bin/flatpak install --system --or-update --noninteractive flathub org.mozilla.firefox
+if [ "$?" != 0 ] ; then
+        kdialog --error \
+          "Installing Firefox Failed"
+fi
+
 echo "# Installing Thunderbird"
-/usr/bin/flatpak install --user --or-update --noninteractive flathub org.mozilla.Thunderbird
+/usr/bin/flatpak install --system --or-update --noninteractive flathub org.mozilla.Thunderbird
 if [ "$?" != 0 ] ; then
         kdialog --error \
           "Installing Thunderbird Failed"
 fi
 
 echo "# Installing OnlyOffice"
-/usr/bin/flatpak install --user --or-update --noninteractive flathub org.onlyoffice.desktopeditors
+/usr/bin/flatpak install --system --or-update --noninteractive flathub org.onlyoffice.desktopeditors
 if [ "$?" != 0 ] ; then
         kdialog --error \
           "Installing OnlyOffice Failed"
 fi
 
 echo "# Installing Vorta"
-/usr/bin/flatpak install --user --or-update --noninteractive flathub com.borgbase.Vorta
+/usr/bin/flatpak install --system --or-update --noninteractive flathub com.borgbase.Vorta
 if [ "$?" != 0 ] ; then
         kdialog --error \
           "Installing Vorta Failed"
+fi
+
+echo "# Installing Easy Effects"
+/usr/bin/flatpak install --system --or-update --noninteractive flathub com.github.wwmm.easyeffects
+if [ "$?" != 0 ] ; then
+        kdialog --error \
+          "Installing Easy Effects Failed"
 fi
 
 mkdir -p "$HOME"/.config/azurite/

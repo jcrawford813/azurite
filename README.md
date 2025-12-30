@@ -3,7 +3,6 @@
 This is my personal atomic image that I use to build my own flavor of [Fedora Kinoite](https://fedoraproject.org/atomic-desktops/kinoite/) (KDE Atomic). I have taken the latest (Version 41, as of right now) Kinoite image, removed Firefox, and added the following:
 
 - Distrobox
-- QEMU, libVirt, and virt-manager
 - Borgbackup
 - Logitech Tooling
 
