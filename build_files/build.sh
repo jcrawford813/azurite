@@ -15,9 +15,8 @@ echo -e "[firefoxpwa]\nname=FirefoxPWA\nmetadata_expire=7d\nbaseurl=https://pack
 dnf -q makecache -y --disablerepo="*" --enablerepo="firefoxpwa"
 dnf install firefoxpwa -y
 
-
 ### Install packages (Distrobox, Fish, Backup Solution)
-dnf install distrobox ksshaskpass fish borgbackup solaar plasma-firewall-firewalld fluidsynth thunderbird easyeffects lm_sensors -y
+dnf install distrobox ksshaskpass fish borgbackup solaar plasma-firewall-firewalld fluidsynth easyeffects lm_sensors -y
 
 ## Enable workaround for qemu/kwm swtpm issue
 systemctl enable swtpm-workaround
