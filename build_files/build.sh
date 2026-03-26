@@ -27,10 +27,7 @@ dnf -q makecache -y --disablerepo="*" --enablerepo="firefoxpwa"
 dnf install firefoxpwa -y
 
 ### Install packages (Distrobox, Fish, Backup Solution)
-dnf install distrobox ksshaskpass fish borgbackup solaar plasma-firewall-firewalld fluidsynth easyeffects lm_sensors -y
-
-### Install kde packages
-dnf install skanpage tesseract gwenview okular neochat krita digikam haruna thunderbird -y
+dnf install distrobox ksshaskpass fish borgbackup solaar plasma-firewall-firewalld fluidsynth easyeffects lm_sensors thunderbird -y
 
 ## Enable workaround for qemu/kwm swtpm issue
 systemctl enable swtpm-workaround
