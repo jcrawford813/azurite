@@ -7,10 +7,20 @@ dnf remove -y \
     plasma-discover-rpm-ostree \
     toolbox
 
+dnf remove -y \
+    firefox \
+    firefox-langpacks
+
 dnf update -y
 
+## Add RPM Fusion Repositories and working libheif
+dnf install -y \
+    https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm 
+
+dnf install -y libheif-freeworld
+
 ### Install packages (Distrobox, Fish, Backup Solution)
-dnf install distrobox ksshaskpass fish borgbackup solaar plasma-firewall-firewalld fluidsynth easyeffects lm_sensors -y
+dnf install distrobox ksshaskpass fish borgbackup solaar fluidsynth lm_sensors -y
 
 ## Enable workaround for qemu/kwm swtpm issue
 systemctl enable swtpm-workaround
