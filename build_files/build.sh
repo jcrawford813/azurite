@@ -16,6 +16,9 @@ dnf update -y
 ### Add VPN Repo
 dnf config-manager addrepo --from-repofile=https://repository.mullvad.net/rpm/stable/mullvad.repo
 
+# Create symlink for /opt to /var/opt since it is not created in the image yet
+mkdir -p "/var/opt" && ln -s "/var/opt"  "/opt"
+
 ## Add RPM Fusion Repositories and working libheif
 dnf install -y \
     https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm 
@@ -28,3 +31,5 @@ dnf install -y mullvad-vpn libvirt qemu-kvm swtpm
 
 ## Enable workaround for qemu/kwm swtpm issue
 systemctl enable swtpm-workaround
+systemctl enable mullvad-daemon
+systemctl enable mullvad-early-boot-blocking
