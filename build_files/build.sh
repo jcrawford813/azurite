@@ -16,9 +16,6 @@ dnf update -y
 ### Add VPN Repo
 dnf config-manager addrepo --from-repofile=https://repository.mullvad.net/rpm/stable/mullvad.repo
 
-# Create symlink for /opt to /var/opt since it is not created in the image yet
-mkdir -p "/var/opt" && ln -s "/var/opt"  "/opt"
-
 ## Add RPM Fusion Repositories and working libheif
 dnf install -y \
     https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm 
@@ -27,7 +24,14 @@ dnf install -y libheif-freeworld
 
 ### Install packages (Distrobox, Fish, Backup Solution)
 dnf install distrobox ksshaskpass fish borgbackup solaar fluidsynth lm_sensors -y
+
+# Create symlink for /opt to /usr/bin to install Mullvad into a proper place that won't disappear on update.
+ln -s "/usr/bin"  "/opt"
+
 dnf install -y mullvad-vpn libvirt qemu-kvm swtpm
+
+### Clean up symlink.
+rm /opt
 
 ## Enable workaround for qemu/kwm swtpm issue
 systemctl enable swtpm-workaround
