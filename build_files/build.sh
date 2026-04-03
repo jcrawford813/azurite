@@ -25,15 +25,7 @@ dnf install -y libheif-freeworld
 ### Install packages (Distrobox, Fish, Backup Solution)
 dnf install distrobox ksshaskpass fish borgbackup solaar fluidsynth lm_sensors -y
 
-# Create symlink for /opt to /usr/bin to install Mullvad into a proper place that won't disappear on update.
-ln -s "/usr/bin"  "/opt"
-
-dnf install -y mullvad-vpn libvirt qemu-kvm swtpm
-
-### Clean up symlink.
-rm /opt
+dnf install -y libvirt qemu-kvm swtpm
 
 ## Enable workaround for qemu/kwm swtpm issue
 systemctl enable swtpm-workaround
-systemctl enable mullvad-daemon
-systemctl enable mullvad-early-boot-blocking
