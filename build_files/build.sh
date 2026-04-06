@@ -34,7 +34,7 @@ dnf install -y \
 dnf install -y libheif-freeworld
 
 ### Install packages (Distrobox, Fish, Backup Solution)
-dnf install distrobox ksshaskpass fish borgbackup solaar fluidsynth lm_sensors -y
+dnf install distrobox ksshaskpass fish borgbackup solaar fluidsynth lm_sensors plasma-oxygen -y
 
 dnf install -y libvirt qemu-kvm swtpm
 
