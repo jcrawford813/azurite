@@ -34,6 +34,10 @@ dnf install -y \
 
 dnf install -y libheif-freeworld
 
+## Add Darkly Theme
+dnf copr enable deltacopy/darkly -y
+dnf install -y darkly
+
 ### Install packages (Distrobox, Fish, Backup Solution)
 dnf install distrobox ksshaskpass fish borgbackup solaar fluidsynth lm_sensors -y
 
