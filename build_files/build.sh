@@ -41,7 +41,7 @@ dnf install -y darkly
 ### Install packages (Distrobox, Fish, Backup Solution)
 dnf install distrobox ksshaskpass fish borgbackup solaar fluidsynth lm_sensors -y
 
-dnf install -y libvirt qemu-kvm swtpm flatpak-builder
+dnf install -y libvirt qemu-kvm swtpm
 
 ## Enable workaround for qemu/kwm swtpm issue
 systemctl enable swtpm-workaround
