@@ -8,10 +8,6 @@ dnf remove -y \
     toolbox \
     plasma-discover
 
-dnf remove -y \
-    firefox \
-    firefox-langpacks
-
 dnf update -y
 
 ### Add VPN Repo
@@ -33,14 +29,41 @@ dnf install -y \
     https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm 
 
 dnf install -y libheif-freeworld
+dnf swap ffmpeg-free ffmpeg --allowerasing -y
+dnf install @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin -y
+dnf install mesa-va-drivers-freeworld -y
 
 ## Add Darkly Theme
 dnf copr enable deltacopy/darkly -y
 dnf install -y darkly
 
-### Install packages (Distrobox, Fish, Backup Solution)
-dnf install distrobox ksshaskpass fish borgbackup solaar fluidsynth lm_sensors -y
+## Install Firefox PWA
+tee /etc/yum.repos.d/firefoxpwa.repo > /dev/null <<EOF
+[firefoxpwa]
+name=FirefoxPWA
+metadata_expire=7d
+baseurl=https://packagecloud.io/filips/FirefoxPWA/rpm_any/rpm_any/\$basearch
+gpgkey=https://packagecloud.io/filips/FirefoxPWA/gpgkey
+       https://packagecloud.io/filips/FirefoxPWA/gpgkey/filips-FirefoxPWA-912AD9BE47FEB404.pub.gpg
+repo_gpgcheck=1
+gpgcheck=1
+enabled=1
+EOF
 
+dnf -q makecache -y --disablerepo="*" --enablerepo="firefoxpwa"
+dnf install firefoxpwa
+
+
+### Install packages (Distrobox, Fish, Backup Solution)
+dnf install distrobox ksshaskpass fish borgbackup solaar fluidsynth lm_sensors podman-compose -y
+
+### Install Applications
+dnf install thunderbird okular gwenview -y
+
+### Packages needed for winapps.
+dnf install curl dialog freerdp git iproute libnotify nmap-ncat -y
+
+### Virtualization Support
 dnf install -y libvirt qemu-kvm swtpm
 
 ## Enable workaround for qemu/kwm swtpm issue
