@@ -51,7 +51,7 @@ enabled=1
 EOF
 
 dnf -q makecache -y --disablerepo="*" --enablerepo="firefoxpwa"
-dnf install firefoxpwa
+dnf install firefoxpwa -y
 
 
 ### Install packages (Distrobox, Fish, Backup Solution)
