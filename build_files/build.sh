@@ -24,7 +24,7 @@ rm /opt
 ln -s /var/opt /opt
 
 
-## Add RPM Fusion Repositories and working libheif
+## Add RPM Fusion Repositories and working media/libheif codecs
 dnf install -y \
     https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm 
 
@@ -58,13 +58,10 @@ dnf install firefoxpwa -y
 dnf install distrobox ksshaskpass fish borgbackup solaar fluidsynth lm_sensors podman-compose -y
 
 ### Install Applications
-dnf install thunderbird okular gwenview -y
+dnf install thunderbird okular gwenview skanpage easyeffects -y
 
 ### Packages needed for winapps.
 dnf install curl dialog freerdp git iproute libnotify nmap-ncat -y
-
-### Virtualization Support
-dnf install -y libvirt qemu-kvm swtpm
 
 ## Enable workaround for qemu/kwm swtpm issue
 systemctl enable swtpm-workaround
