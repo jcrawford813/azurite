@@ -58,7 +58,7 @@ dnf install firefoxpwa -y
 dnf install distrobox ksshaskpass fish borgbackup solaar fluidsynth lm_sensors podman-compose -y
 
 ### Install Applications
-dnf install thunderbird okular gwenview skanpage easyeffects -y
+dnf install thunderbird okular gwenview skanpage easyeffects krdc -y
 
 ### Packages needed for winapps.
 dnf install curl dialog freerdp git iproute libnotify nmap-ncat -y
