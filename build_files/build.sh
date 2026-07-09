@@ -60,9 +60,6 @@ dnf install distrobox ksshaskpass fish borgbackup solaar fluidsynth lm_sensors p
 ### Install Applications
 dnf install thunderbird okular gwenview skanpage easyeffects krdc -y
 
-### Packages needed for winapps.
-dnf install curl dialog freerdp git iproute libnotify nmap-ncat -y
-
 ## Enable workaround for qemu/kwm swtpm issue
 systemctl enable swtpm-workaround
 systemctl enable mullvad-daemon
