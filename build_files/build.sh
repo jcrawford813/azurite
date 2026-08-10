@@ -60,6 +60,9 @@ dnf install distrobox ksshaskpass fish borgbackup solaar fluidsynth lm_sensors p
 ### Install Applications
 dnf install thunderbird okular gwenview skanpage easyeffects krdc -y
 
+### Install Virtualization
+dnf install virt-install libvirt-daemon-kvm libvirt-daemon-config-network qemu-kvm swtpm -y
+
 ## Enable workaround for qemu/kwm swtpm issue
 systemctl enable swtpm-workaround
 systemctl enable mullvad-daemon
