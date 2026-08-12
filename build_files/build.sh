@@ -37,6 +37,10 @@ dnf install mesa-va-drivers-freeworld -y
 dnf copr enable deltacopy/darkly -y
 dnf install -y darkly
 
+## Add Klassy Theme
+dnf config-manager addrepo --from-repofile=https://download.opensuse.org/repositories/home:paulmcauley/Fedora_44/home:paulmcauley.repo -y
+dnf install klassy -y
+
 ## Install Firefox PWA
 tee /etc/yum.repos.d/firefoxpwa.repo > /dev/null <<EOF
 [firefoxpwa]
