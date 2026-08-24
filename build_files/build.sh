@@ -33,10 +33,6 @@ dnf swap ffmpeg-free ffmpeg --allowerasing -y
 dnf install @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin -y
 dnf install mesa-va-drivers-freeworld -y
 
-## Add Darkly Theme
-dnf copr enable deltacopy/darkly -y
-dnf install -y darkly
-
 ## Add Klassy Theme
 dnf config-manager addrepo --from-repofile=https://download.opensuse.org/repositories/home:paulmcauley/Fedora_44/home:paulmcauley.repo -y
 dnf install klassy -y
