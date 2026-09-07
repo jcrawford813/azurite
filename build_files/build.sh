@@ -58,7 +58,7 @@ dnf install firefoxpwa -y
 dnf install distrobox ksshaskpass fish borgbackup solaar fluidsynth lm_sensors podman-compose -y
 
 ### Install Applications
-dnf install thunderbird okular koko skanpage easyeffects krdc -y
+dnf install thunderbird okular qimgv skanpage easyeffects krdc -y
 
 ### Install Virtualization
 dnf install virt-install libvirt-daemon-kvm libvirt-daemon-config-network qemu-kvm swtpm -y
