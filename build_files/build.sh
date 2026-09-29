@@ -4,6 +4,8 @@ set -ouex pipefail
 
 ### Remove Packages
 dnf remove -y \
+    firefox \
+    firefox-langpacks \
     plasma-discover-rpm-ostree \
     toolbox \
     plasma-discover
@@ -29,9 +31,6 @@ dnf install -y \
     https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm 
 
 dnf install -y libheif-freeworld
-dnf swap ffmpeg-free ffmpeg --allowerasing -y
-dnf install @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin -y
-dnf install mesa-va-drivers-freeworld -y
 
 ## Add Klassy Theme
 dnf config-manager addrepo --from-repofile=https://download.opensuse.org/repositories/home:paulmcauley/Fedora_44/home:paulmcauley.repo -y
@@ -56,9 +55,6 @@ dnf install firefoxpwa -y
 
 ### Install packages (Distrobox, Fish, Backup Solution)
 dnf install distrobox ksshaskpass fish borgbackup solaar fluidsynth lm_sensors podman-compose -y
-
-### Install Applications
-dnf install thunderbird okular qimgv skanpage easyeffects krdc -y
 
 ### Install Virtualization
 dnf install virt-install libvirt-daemon-kvm libvirt-daemon-config-network qemu-kvm swtpm -y
