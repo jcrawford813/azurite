@@ -27,10 +27,10 @@ ln -s /var/opt /opt
 
 
 ## Add RPM Fusion Repositories and working media/libheif codecs
-dnf install -y \
-    https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm 
+##dnf install -y \
+##    https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm 
 
-dnf install -y libheif-freeworld
+##dnf install -y libheif-freeworld
 
 ## Add Klassy Theme
 dnf config-manager addrepo --from-repofile=https://download.opensuse.org/repositories/home:paulmcauley/Fedora_44/home:paulmcauley.repo -y
